@@ -30,10 +30,10 @@
         /* Hiệu ứng ảnh & lời chúc trôi từ dưới lên làm nền */
         @keyframes scrollUp {
             0% {
-                transform: translateY(100%);
+                transform: translateY(100vh);
             }
             100% {
-                transform: translateY(-120%);
+                transform: translateY(-120vh);
             }
         }
         .stream-column {
@@ -71,61 +71,20 @@
         }
     </style>
 </head>
-<body class="relative flex items-center justify-center">
+<body class="relative flex items-center justify-center" onclick="startMusic()">
 
     <!-- PHẦN 1: NỀN ĐỘNG TRÔI TỪ DƯỚI LÊN (ẢNH + LỜI CHÚC) -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-45">
         <!-- Cột 1 -->
-        <div class="stream-column col-1">
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Chúc cậu 20/10 luôn ngập tràn niềm vui! 💕"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Nụ cười của cậu đẹp như đóa hoa hồng vậy 🌹"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1522748174526-d9f7833bd4d2?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Mãi đáng yêu và hạnh phúc thế này nhé! ✨"</p>
-            </div>
-        </div>
-
+        <div class="stream-column col-1" id="column-1"></div>
         <!-- Cột 2 -->
-        <div class="stream-column col-2">
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Hôm nay là ngày của cậu, hãy tận hưởng trọn vẹn nhé! 💖"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Cảm ơn vì đã đến và làm cuộc sống tớ thêm rực rỡ 🥰"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Chúc công chúa của tớ ngày 20/10 thật nhiều quà! 👑"</p>
-            </div>
-        </div>
-
+        <div class="stream-column col-2" id="column-2"></div>
         <!-- Cột 3 -->
-        <div class="stream-column col-3">
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Mong mọi điều tốt đẹp nhất sẽ đến với cậu 🌸"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Cậu là điều tuyệt vời nhất tớ từng có 💫"</p>
-            </div>
-            <div class="memory-card">
-                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
-                <p class="text-xs font-semibold text-pink-700 text-center">"Happy Vietnamese Women's Day! 💐"</p>
-            </div>
-        </div>
+        <div class="stream-column col-3" id="column-3"></div>
     </div>
 
     <!-- PHẦN 2: HỘP THOẠI TƯƠNG TÁC CHÍNH -->
-    <div id="main-card" class="relative z-10 bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center border border-white/80">
+    <div id="main-card" class="relative z-10 bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center border border-white/80 transition-all duration-300">
         <div class="text-pink-500 text-5xl mb-3 heart-beat">
             <i class="fa-solid fa-heart"></i>
         </div>
@@ -168,28 +127,77 @@
         </div>
     </div>
 
+    <!-- Nhạc nền -->
+    <audio id="bg-music" loop>
+        <source src="https://example.com/romantic_synth.mp3" type="audio/mpeg"> <!-- Cần thay thế bằng link nhạc thực -->
+    </audio>
+
     <!-- SCRIPT XỬ LÝ HIỆU ỨNG -->
     <script>
+        // Dữ liệu ảnh và lời chúc trôi nền
+        const cardsData = [
+            { img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400", text: "Chúc cậu 20/10 ngập tràn niềm vui! 💕" },
+            { img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400", text: "Nụ cười của cậu đẹp như đóa hoa hồng vậy 🌹" },
+            { img: "https://images.unsplash.com/photo-1522748174526-d9f7833bd4d2?w=400", text: "Mãi đáng yêu và hạnh phúc thế này nhé! ✨" },
+            { img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400", text: "Hôm nay là ngày của cậu, hãy tận hưởng trọn vẹn nhé! 💖" },
+            { img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400", text: "Cảm ơn vì đã đến và làm cuộc sống tớ thêm rực rỡ 🥰" },
+            { img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400", text: "Chúc công chúa của tớ ngày 20/10 thật nhiều quà! 👑" },
+            { img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400", text: "Cậu là điều tuyệt vời nhất tớ từng có 💫" },
+            { img: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400", text: "Happy Vietnamese Women's Day! 💐" },
+            { img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400", text: "Mong mọi điều tốt đẹp nhất sẽ đến với cậu 🌸" },
+        ];
+
+        // Hàm tạo thẻ ảnh và lời chúc
+        function createCard(data) {
+            return `
+                <div class="memory-card">
+                    <img src="${data.img}" class="w-full h-32 object-cover rounded-lg mb-2">
+                    <p class="text-xs font-semibold text-pink-700 text-center">${data.text}</p>
+                </div>
+            `;
+        }
+
+        // Điền dữ liệu vào 3 cột
+        const columns = ['column-1', 'column-2', 'column-3'];
+        columns.forEach((colId, index) => {
+            const col = document.getElementById(colId);
+            // Lặp lại dữ liệu để tạo luồng liên tục
+            const dataToUse = cardsData.concat(cardsData).concat(cardsData);
+            col.innerHTML = dataToUse.slice(index * 3, index * 3 + 9).map(createCard).join('');
+        });
+
+        // Nhạc nền
+        let musicStarted = false;
+        function startMusic() {
+            if (!musicStarted) {
+                document.getElementById('bg-music').play();
+                musicStarted = true;
+            }
+        }
+
         // Nút "Không" chạy trốn khi rê chuột hoặc chạm vào
         function moveButton() {
             const btnNo = document.getElementById('btn-no');
-            const maxX = window.innerWidth - btnNo.offsetWidth - 50;
-            const maxY = window.innerHeight - btnNo.offsetHeight - 50;
+            const btnGroup = document.getElementById('btn-group');
+            const maxX = btnGroup.offsetWidth - btnNo.offsetWidth - 20; // Tránh tràn
+            const maxY = btnGroup.offsetHeight - btnNo.offsetHeight - 20;
             
-            const randomX = Math.random() * (maxX - 50) + 25;
-            const randomY = Math.random() * (maxY - 50) + 25;
+            const randomX = Math.random() * (maxX - 20) + 10;
+            const randomY = Math.random() * (maxY - 20) + 10;
 
-            btnNo.style.position = 'fixed';
             btnNo.style.left = `${randomX}px`;
             btnNo.style.top = `${randomY}px`;
         }
 
         // Khi bấm nút "Thích lắm luôn"
         function acceptLove() {
+            // Đảm bảo nhạc phát
+            startMusic();
+            
             // Bắn pháo hoa trái tim
             confetti({
-                particleCount: 100,
-                spread: 70,
+                particleCount: 150,
+                spread: 100,
                 origin: { y: 0.6 },
                 colors: ['#ff758c', '#ffeb3b', '#ff4081', '#e91e63']
             });
