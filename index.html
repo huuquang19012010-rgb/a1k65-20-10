@@ -1,658 +1,206 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff0f5">
-<title>Gửi những bông hoa xinh đẹp của A1K65 🌷</title>
-
-<style>
-/* =========================
-   1. CÀI ĐẶT CHUNG
-========================= */
-:root {
-    --pink: #ff6f9f;
-    --pink-dark: #d9437b;
-    --pink-light: #fff0f5;
-    --pink-soft: #ffe0eb;
-    --cream: #fffaf8;
-    --text: #854761;
-    --white: #ffffff;
-    --shadow: 0 12px 35px rgba(210, 94, 139, 0.15);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: var(--text);
-    background:
-        radial-gradient(ellipse at top left, #ffe3ed 0, transparent 45%),
-        linear-gradient(135deg, #fff8fa, #ffeaf2, #fff7f5);
-    overflow-x: hidden;
-}
-
-button {
-    font: inherit;
-}
-
-button:focus-visible,
-a:focus-visible {
-    outline: 3px solid #c52d70;
-    outline-offset: 4px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-section {
-    padding: 76px 20px;
-    position: relative;
-}
-
-.section-inner {
-    width: min(1050px, 100%);
-    margin: 0 auto;
-}
-
-.section-title {
-    margin: 0 0 12px;
-    text-align: center;
-    color: var(--pink-dark);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2rem, 5vw, 3.1rem);
-    font-style: italic;
-}
-
-.section-subtitle {
-    text-align: center;
-    line-height: 1.8;
-    margin: 0 auto 34px;
-    max-width: 620px;
-    color: #98627a;
-}
-
-.pink-button {
-    border: 0;
-    border-radius: 999px;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, #ff82ad, #ed4f8a);
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(237, 79, 138, 0.25);
-    transition: transform .25s, box-shadow .25s;
-}
-
-.pink-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(237, 79, 138, 0.32);
-}
-
-.pink-button:active {
-    transform: scale(.97);
-}
-
-/* =========================
-   2. NÚT NHẠC
-========================= */
-.music-button {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 14px;
-    border: 1px solid #ffc2d7;
-    border-radius: 999px;
-    color: var(--pink-dark);
-    background: rgba(255, 255, 255, .88);
-    box-shadow: 0 5px 18px rgba(210, 94, 139, .14);
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.music-icon {
-    font-size: 17px;
-}
-
-/* =========================
-   3. MÀN HÌNH MỞ ĐẦU
-========================= */
-.hero {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 20px 50px;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse at 50% 80%, #ffd2e2 0, transparent 42%),
-        linear-gradient(160deg, #fff8fb, #ffeaf3 60%, #fff8f5);
-}
-
-.hero::before,
-.hero::after {
-    content: "♡";
-    position: absolute;
-    color: #ff9cbd;
-    font-size: 40px;
-    opacity: .65;
-    animation: float 5s ease-in-out infinite;
-}
-
-.hero::before {
-    top: 15%;
-    left: 9%;
-}
-
-.hero::after {
-    right: 10%;
-    bottom: 17%;
-    animation-delay: -2s;
-}
-
-.hero-content {
-    width: min(680px, 100%);
-    position: relative;
-    z-index: 2;
-    animation: fadeUp 1s ease both;
-}
-
-.eyebrow {
-    display: inline-block;
-    padding: 8px 15px;
-    border: 1px solid #ffc3d7;
-    border-radius: 999px;
-    color: #c34d7d;
-    background: rgba(255,255,255,.7);
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-.hero h1 {
-    margin: 22px 0 10px;
-    color: #d9437b;
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-size: clamp(2.2rem, 7vw, 4.3rem);
-    line-height: 1.16;
-    text-shadow: 0 4px 20px rgba(231, 106, 153, .12);
-}
-
-.hero p {
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-.bouquet-wrap {
-    width: min(390px, 88vw);
-    height: 315px;
-    margin: 10px auto 16px;
-    position: relative;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.bouquet-glow {
-    position: absolute;
-    width: 82%;
-    height: 72%;
-    top: 12%;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ffc3d8 0%, #ffe5ef 48%, transparent 72%);
-    filter: blur(10px);
-}
-
-.bouquet {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(6.5rem, 28vw, 10rem);
-    line-height: 1;
-    filter: drop-shadow(0 16px 12px rgba(194, 79, 125, .18));
-    animation: bouquetSway 4s ease-in-out infinite;
-    transition: transform .45s;
-}
-
-.bouquet-wrap:hover .bouquet {
-    transform: scale(1.07) rotate(-3deg);
-}
-
-.bouquet-note {
-    position: absolute;
-    right: 7%;
-    bottom: 12%;
-    z-index: 3;
-    transform: rotate(8deg);
-    background: #fffaf5;
-    color: #d9437b;
-    padding: 10px 14px;
-    box-shadow: 0 5px 15px #d27b9c35;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 14px;
-}
-
-.hero-hint {
-    display: block;
-    margin-top: 15px;
-    font-size: 13px;
-    color: #ad6b85;
-    animation: pulse 2s infinite;
-}
-
-/* =========================
-   4. THIỆP VÀ LỜI CHÚC
-========================= */
-.letter-section {
-    padding-top: 65px;
-}
-
-.letter {
-    position: relative;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: clamp(25px, 6vw, 55px);
-    background: rgba(255, 255, 255, .88);
-    border: 1px solid #ffd1e1;
-    border-radius: 8px 8px 25px 8px;
-    box-shadow: var(--shadow);
-    transform-origin: top center;
-    animation: letterIn .8s ease both;
-}
-
-.letter::before {
-    content: "🌷";
-    position: absolute;
-    top: -23px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 35px;
-    background: #fff5f8;
-    border-radius: 50%;
-    padding: 3px 10px;
-}
-
-.letter h2 {
-    margin: 10px 0 25px;
-    text-align: center;
-    color: var(--pink-dark);
-    font-family: Georgia, serif;
-    font-size: clamp(1.5rem, 5vw, 2.3rem);
-    font-style: italic;
-}
-
-.letter p {
-    font-size: 16px;
-    line-height: 2;
-    margin: 0 0 15px;
-}
-
-.letter-sign {
-    text-align: right;
-    color: #d9437b;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 18px;
-    margin-top: 24px;
-}
-
-/* =========================
-   5. ALBUM POLAROID
-========================= */
-.album-section {
-    background: rgba(255, 255, 255, .32);
-}
-
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 27px;
-    align-items: start;
-}
-
-.polaroid {
-    padding: 10px 10px 17px;
-    background: white;
-    border-radius: 3px;
-    box-shadow: 0 8px 22px rgba(166, 82, 118, .15);
-    transition: transform .3s, box-shadow .3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.polaroid:nth-child(3n + 1) {
-    transform: rotate(-2.5deg);
-}
-
-.polaroid:nth-child(3n + 2) {
-    transform: rotate(2deg);
-    margin-top: 17px;
-}
-
-.polaroid:nth-child(3n) {
-    transform: rotate(-1deg);
-    margin-top: 7px;
-}
-
-.polaroid:hover {
-    transform: translateY(-7px) rotate(0deg) scale(1.02);
-    box-shadow: 0 15px 28px rgba(166, 82, 118, .22);
-    z-index: 2;
-}
-
-.photo-frame {
-    width: 100%;
-    aspect-ratio: 4 / 4.4;
-    overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(255,255,255,.25), transparent),
-        #ffe1eb;
-    display: grid;
-    place-items: center;
-    position: relative;
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .45s;
-}
-
-.polaroid:hover .photo-frame img {
-    transform: scale(1.05);
-}
-
-.photo-placeholder {
-    text-align: center;
-    padding: 12px;
-    color: #c75c86;
-    line-height: 1.6;
-    font-size: 13px;
-}
-
-.photo-placeholder span {
-    display: block;
-    font-size: 35px;
-    margin-bottom: 5px;
-}
-
-.photo-caption {
-    text-align: center;
-    padding: 13px 4px 0;
-    color: #bd4d7a;
-    font-family: Georgia, serif;
-    font-size: 17px;
-    font-style: italic;
-    overflow-wrap: anywhere;
-}
-
-.album-tip {
-    margin: 30px auto 0;
-    max-width: 650px;
-    padding: 16px 20px;
-    border: 1px dashed #f4a7c2;
-    border-radius: 16px;
-    background: #fff7fa;
-    line-height: 1.8;
-    font-size: 14px;
-}
-
-/* =========================
-   6. LỜI NHẮN KẾT
-========================= */
-.closing {
-    text-align: center;
-    padding-top: 90px;
-    padding-bottom: 90px;
-    background:
-        radial-gradient(ellipse at center, #ffd6e5, transparent 65%);
-}
-
-.closing-heart {
-    font-size: 55px;
-    display: inline-block;
-    animation: heartbeat 1.6s infinite;
-}
-
-.closing h2 {
-    margin: 18px auto;
-    max-width: 750px;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    line-height: 1.4;
-    color: #d9437b;
-}
-
-.closing p {
-    max-width: 590px;
-    margin: 0 auto 25px;
-    line-height: 1.9;
-}
-
-footer {
-    text-align: center;
-    padding: 24px 16px;
-    color: #b06c86;
-    font-size: 13px;
-    line-height: 1.8;
-    background: rgba(255,255,255,.65);
-}
-
-/* =========================
-   7. HOA RƠI
-========================= */
-.falling-petal {
-    position: fixed;
-    top: -35px;
-    z-index: 80;
-    pointer-events: none;
-    user-select: none;
-    animation: petalFall linear forwards;
-    will-change: transform, opacity;
-}
-
-/* =========================
-   8. HIỆU ỨNG
-========================= */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes letterIn {
-    from { opacity: 0; transform: translateY(20px) scale(.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(-8deg); }
-    50% { transform: translateY(-20px) rotate(8deg); }
-}
-
-@keyframes bouquetSway {
-    0%, 100% { transform: rotate(-2deg) translateY(0); }
-    50% { transform: rotate(2deg) translateY(-7px); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: .65; }
-    50% { opacity: 1; }
-}
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    15% { transform: scale(1.13); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.08); }
-}
-
-@keyframes petalFall {
-    0% {
-        transform: translate3d(0, -5vh, 0) rotate(0deg);
-        opacity: 0;
-    }
-    10% { opacity: .9; }
-    90% { opacity: .8; }
-    100% {
-        transform: translate3d(var(--drift), 110vh, 0) rotate(600deg);
-        opacity: 0;
-    }
-}
-
-/* =========================
-   9. ĐIỆN THOẠI / MÀN HÌNH NHỎ
-========================= */
-@media (max-width: 720px) {
-    section {
-        padding: 58px 16px;
-    }
-
-    .hero {
-        min-height: 94svh;
-        padding-top: 90px;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.05rem, 9vw, 3.2rem);
-    }
-
-    .bouquet-wrap {
-        height: 260px;
-    }
-
-    .album-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 17px;
-    }
-
-    .polaroid {
-        padding: 7px 7px 12px;
-    }
-
-    .photo-caption {
-        font-size: 14px;
-        padding-top: 10px;
-    }
-
-    .letter p {
-        font-size: 15px;
-        line-height: 1.9;
-    }
-
-    .music-button {
-        top: 10px;
-        right: 10px;
-        padding: 9px 12px;
-    }
-}
-
-@media (max-width: 380px) {
-    .album-grid {
-        gap: 12px;
-    }
-
-    .photo-caption {
-        font-size: 13px;
-    }
-
-    .bouquet-wrap {
-        height: 225px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10 - Gửi Người Con Gái Tuyệt Vời Nhất ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for Fireworks/Hearts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            height: 100vh;
+            margin: 0;
+        }
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        .font-great {
+            font-family: 'Great Vibes', cursive;
+        }
+        
+        /* Hiệu ứng ảnh & lời chúc trôi từ dưới lên làm nền */
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-120%);
+            }
+        }
+        .stream-column {
+            position: absolute;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: scrollUp linear infinite;
+        }
+        .col-1 { left: 3%; animation-duration: 25s; }
+        .col-2 { left: 35%; animation-duration: 32s; animation-delay: -5s; }
+        .col-3 { left: 67%; animation-duration: 28s; animation-delay: -10s; }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.3s;
+        }
+        .memory-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Hiệu ứng nhịp đập trái tim */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        .heart-beat {
+            animation: heartbeat 1.2s infinite ease-in-out;
+        }
+    </style>
 </head>
+<body class="relative flex items-center justify-center">
 
-<body>
-
-<!-- NÚT NHẠC: tải file nhacnen.mp3 lên cùng thư mục nếu muốn dùng -->
-<audio id="backgroundMusic" src="nhacnen.mp3" loop preload="none"></audio>
-
-<button class="music-button" id="musicButton" type="button"
-        aria-label="Bật nhạc nền" aria-pressed="false">
-    <span class="music-icon" id="musicIcon">♫</span>
-    <span id="musicText">Nhạc: Tắt</span>
-</button>
-
-<!-- MÀN HÌNH CHÀO -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <span class="eyebrow">🌷 20/10 · A1K65 🌷</span>
-
-        <h1>Gửi những bông hoa<br>xinh đẹp của A1K65</h1>
-
-        <p>
-            Chúc các bạn nữ luôn xinh đẹp, hạnh phúc,
-            tự tin và gặp thật nhiều điều tuyệt vời! 💗
-        </p>
-
-        <div class="bouquet-wrap" id="bouquet" role="button"
-             tabindex="0" aria-label="Bấm để mở thiệp">
-            <div class="bouquet-glow"></div>
-            <div class="bouquet" aria-hidden="true">💐</div>
-            <div class="bouquet-note">For you ♡</div>
+    <!-- PHẦN 1: NỀN ĐỘNG TRÔI TỪ DƯỚI LÊN (ẢNH + LỜI CHÚC) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-45">
+        <!-- Cột 1 -->
+        <div class="stream-column col-1">
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Chúc cậu 20/10 luôn ngập tràn niềm vui! 💕"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Nụ cười của cậu đẹp như đóa hoa hồng vậy 🌹"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1522748174526-d9f7833bd4d2?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Mãi đáng yêu và hạnh phúc thế này nhé! ✨"</p>
+            </div>
         </div>
 
-        <button class="pink-button" id="openCardButton" type="button">
-            💌 Bấm để mở thiệp
-        </button>
+        <!-- Cột 2 -->
+        <div class="stream-column col-2">
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Hôm nay là ngày của cậu, hãy tận hưởng trọn vẹn nhé! 💖"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Cảm ơn vì đã đến và làm cuộc sống tớ thêm rực rỡ 🥰"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Chúc công chúa của tớ ngày 20/10 thật nhiều quà! 👑"</p>
+            </div>
+        </div>
 
-        <span class="hero-hint">Chạm vào bó hoa để khám phá món quà nhỏ này ↓</span>
+        <!-- Cột 3 -->
+        <div class="stream-column col-3">
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Mong mọi điều tốt đẹp nhất sẽ đến với cậu 🌸"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Cậu là điều tuyệt vời nhất tớ từng có 💫"</p>
+            </div>
+            <div class="memory-card">
+                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400" class="w-full h-32 object-cover rounded-lg mb-2">
+                <p class="text-xs font-semibold text-pink-700 text-center">"Happy Vietnamese Women's Day! 💐"</p>
+            </div>
+        </div>
     </div>
-</section>
 
-<!-- THIỆP CHÚC -->
-<section class="letter-section hidden" id="letterSection">
-    <div class="section-inner">
-        <div class="letter">
-            <h2>Gửi các bạn nữ A1K65 💗</h2>
+    <!-- PHẦN 2: HỘP THOẠI TƯƠNG TÁC CHÍNH -->
+    <div id="main-card" class="relative z-10 bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center border border-white/80">
+        <div class="text-pink-500 text-5xl mb-3 heart-beat">
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        
+        <h1 class="font-great text-5xl text-pink-600 mb-2">Gửi 20/10 Đặc Biệt</h1>
+        <h2 class="font-dancing text-2xl text-gray-700 mb-6">Dành cho người con gái tuyệt vời nhất ❤️</h2>
 
-            <p>
-                Nhân ngày 20/10, tập thể lớp A1K65 xin gửi đến
-                tất cả các bạn nữ những lời chúc tốt đẹp nhất!
+        <p class="text-gray-600 text-sm mb-8 leading-relaxed">
+            Hôm nay ngày 20/10, chúc cậu luôn luôn xinh đẹp, rạng rỡ, cười nhiều hơn mỗi ngày và mọi dự định đều thành công rực rỡ nhé!
+        </p>
+
+        <div class="text-lg font-semibold text-gray-800 mb-6">
+            Cậu có thấy món quà và lời chúc này dễ thương không? 🥰
+        </div>
+
+        <!-- Các nút bấm tương tác -->
+        <div id="btn-group" class="flex items-center justify-center gap-4 relative h-16">
+            <button id="btn-yes" onclick="acceptLove()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/50 hover:scale-105 transition transform duration-200 z-20">
+                Thích lắm luôn ❤️
+            </button>
+            <button id="btn-no" onmouseover="moveButton()" ontouchstart="moveButton()" class="bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-full shadow hover:bg-gray-300 transition absolute right-4">
+                Không thích 😜
+            </button>
+        </div>
+    </div>
+
+    <!-- PHẦN 3: MODAL KHI BẤM "THÍCH" -->
+    <div id="success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 transition animate-bounce-short">
+            <div class="text-rose-500 text-6xl mb-4">
+                <i class="fa-solid fa-face-kiss-wink-heart"></i>
+            </div>
+            <h3 class="font-dancing text-4xl text-pink-600 mb-3">Yêu cậu nhiều lắm! 💕</h3>
+            <p class="text-gray-600 text-sm mb-6">
+                Chúc cậu có một ngày 20/10 ngập tràn hoa, quà và những lời chúc ngọt ngào nhất từ mọi người xung quanh nhé! 🌹✨
             </p>
+            <button onclick="closeModal()" class="bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow hover:bg-pink-600 transition">
+                Nhận Lời Chúc 🎁
+            </button>
+        </div>
+    </div>
 
-            <p>
-                Chúc các bạn luôn vui vẻ, xinh đẹp theo cách riêng của mình,
-                học tập thật tốt, tự tin theo đuổi những điều mình yêu thích
-                và gặp thật nhiều may mắn trong cuộc sống.
-            </p>
+    <!-- SCRIPT XỬ LÝ HIỆU ỨNG -->
+    <script>
+        // Nút "Không" chạy trốn khi rê chuột hoặc chạm vào
+        function moveButton() {
+            const btnNo = document.getElementById('btn-no');
+            const maxX = window.innerWidth - btnNo.offsetWidth - 50;
+            const maxY = window.innerHeight - btnNo.offsetHeight - 50;
+            
+            const randomX = Math.random() * (maxX - 50) + 25;
+            const randomY = Math.random() * (maxY - 50) + 25;
 
-            <p>
-                Mong rằng mỗi ngày đến lớp đều là một ngày thật vui,
-                có thêm nhiều tiếng cười, nhiều kỷ niệm đáng nhớ và
-                những người bạn luôn bên cạnh sẻ chia.
-            </p>
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+        }
 
-            <p>
-                Cảm ơn các bạn vì đã là những mảnh ghép đáng quý của A1K65.
-                Mong các bạn luôn giữ được nụ cười, sự hồn
+        // Khi bấm nút "Thích lắm luôn"
+        function acceptLove() {
+            // Bắn pháo hoa trái tim
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff758c', '#ffeb3b', '#ff4081', '#e91e63']
+            });
+
+            // Hiện modal chúc mừng
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
