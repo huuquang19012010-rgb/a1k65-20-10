@@ -360,20 +360,28 @@ section {
 
 .photo-frame {
     width: 100%;
-    aspect-ratio: 4 / 4.4;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(255,255,255,.25), transparent),
-        #ffe1eb;
+    background: #fff0f5;
     display: grid;
     place-items: center;
     position: relative;
 }
 
+/* Ảnh 1 đến ảnh 5: khung dọc */
+.polaroid:nth-child(-n+5) .photo-frame {
+    aspect-ratio: 3 / 4;
+}
+
+/* Ảnh 6 trở đi: khung ngang */
+.polaroid:nth-child(n+6) .photo-frame {
+    aspect-ratio: 4 / 3;
+}
+
 .photo-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     transition: transform .45s;
 }
