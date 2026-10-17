@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,9 +8,6 @@
 <title>Gửi những bông hoa xinh đẹp của A1K65 🌷</title>
 
 <style>
-/* =========================
-   1. CÀI ĐẶT CHUNG
-========================= */
 :root {
     --pink: #ff6f9f;
     --pink-dark: #d9437b;
@@ -21,13 +19,9 @@
     --shadow: 0 12px 35px rgba(210, 94, 139, 0.15);
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
@@ -39,9 +33,7 @@ body {
     overflow-x: hidden;
 }
 
-button {
-    font: inherit;
-}
+button { font: inherit; }
 
 button:focus-visible,
 a:focus-visible {
@@ -49,9 +41,7 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }
 
 section {
     padding: 76px 20px;
@@ -97,13 +87,9 @@ section {
     box-shadow: 0 12px 24px rgba(237, 79, 138, 0.32);
 }
 
-.pink-button:active {
-    transform: scale(.97);
-}
+.pink-button:active { transform: scale(.97); }
 
-/* =========================
-   2. NÚT NHẠC
-========================= */
+/* NÚT NHẠC */
 .music-button {
     position: fixed;
     top: 16px;
@@ -124,13 +110,9 @@ section {
     font-weight: 700;
 }
 
-.music-icon {
-    font-size: 17px;
-}
+.music-icon { font-size: 17px; }
 
-/* =========================
-   3. MÀN HÌNH MỞ ĐẦU
-========================= */
+/* MÀN HÌNH MỞ ĐẦU */
 .hero {
     min-height: 100svh;
     display: flex;
@@ -258,12 +240,8 @@ section {
     animation: pulse 2s infinite;
 }
 
-/* =========================
-   4. THIỆP VÀ LỜI CHÚC
-========================= */
-.letter-section {
-    padding-top: 65px;
-}
+/* THIỆP VÀ LỜI CHÚC */
+.letter-section { padding-top: 65px; }
 
 .letter {
     position: relative;
@@ -314,12 +292,8 @@ section {
     margin-top: 24px;
 }
 
-/* =========================
-   5. ALBUM POLAROID
-========================= */
-.album-section {
-    background: rgba(255, 255, 255, .32);
-}
+/* ALBUM ẢNH */
+.album-section { background: rgba(255, 255, 255, .32); }
 
 .album-grid {
     display: grid;
@@ -338,9 +312,7 @@ section {
     overflow: hidden;
 }
 
-.polaroid:nth-child(3n + 1) {
-    transform: rotate(-2.5deg);
-}
+.polaroid:nth-child(3n + 1) { transform: rotate(-2.5deg); }
 
 .polaroid:nth-child(3n + 2) {
     transform: rotate(2deg);
@@ -368,15 +340,8 @@ section {
     position: relative;
 }
 
-/* Ảnh 1 đến ảnh 5: khung dọc */
-.polaroid:nth-child(-n+5) .photo-frame {
-    aspect-ratio: 3 / 4;
-}
-
-/* Ảnh 6 trở đi: khung ngang */
-.polaroid:nth-child(n+6) .photo-frame {
-    aspect-ratio: 4 / 3;
-}
+.polaroid:nth-child(-n+5) .photo-frame { aspect-ratio: 3 / 4; }
+.polaroid:nth-child(n+6) .photo-frame { aspect-ratio: 4 / 3; }
 
 .photo-frame img {
     width: 100%;
@@ -386,9 +351,7 @@ section {
     transition: transform .45s;
 }
 
-.polaroid:hover .photo-frame img {
-    transform: scale(1.05);
-}
+.polaroid:hover .photo-frame img { transform: scale(1.05); }
 
 .photo-placeholder {
     text-align: center;
@@ -425,15 +388,12 @@ section {
     font-size: 14px;
 }
 
-/* =========================
-   6. LỜI NHẮN KẾT
-========================= */
+/* LỜI NHẮN KẾT */
 .closing {
     text-align: center;
     padding-top: 90px;
     padding-bottom: 90px;
-    background:
-        radial-gradient(ellipse at center, #ffd6e5, transparent 65%);
+    background: radial-gradient(ellipse at center, #ffd6e5, transparent 65%);
 }
 
 .closing-heart {
@@ -467,9 +427,7 @@ footer {
     background: rgba(255,255,255,.65);
 }
 
-/* =========================
-   7. HOA RƠI
-========================= */
+/* HOA RƠI */
 .falling-petal {
     position: fixed;
     top: -35px;
@@ -480,9 +438,7 @@ footer {
     will-change: transform, opacity;
 }
 
-/* =========================
-   8. HIỆU ỨNG
-========================= */
+/* HIỆU ỨNG */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
@@ -528,35 +484,24 @@ footer {
     }
 }
 
-/* =========================
-   9. ĐIỆN THOẠI / MÀN HÌNH NHỎ
-========================= */
+/* ĐIỆN THOẠI */
 @media (max-width: 720px) {
-    section {
-        padding: 58px 16px;
-    }
+    section { padding: 58px 16px; }
 
     .hero {
         min-height: 94svh;
         padding-top: 90px;
     }
 
-    .hero h1 {
-        font-size: clamp(2.05rem, 9vw, 3.2rem);
-    }
-
-    .bouquet-wrap {
-        height: 260px;
-    }
+    .hero h1 { font-size: clamp(2.05rem, 9vw, 3.2rem); }
+    .bouquet-wrap { height: 260px; }
 
     .album-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 17px;
     }
 
-    .polaroid {
-        padding: 7px 7px 12px;
-    }
+    .polaroid { padding: 7px 7px 12px; }
 
     .photo-caption {
         font-size: 14px;
@@ -576,17 +521,9 @@ footer {
 }
 
 @media (max-width: 380px) {
-    .album-grid {
-        gap: 12px;
-    }
-
-    .photo-caption {
-        font-size: 13px;
-    }
-
-    .bouquet-wrap {
-        height: 225px;
-    }
+    .album-grid { gap: 12px; }
+    .photo-caption { font-size: 13px; }
+    .bouquet-wrap { height: 225px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -602,13 +539,13 @@ footer {
 
 <body>
 
-<!-- NÚT NHẠC: tải file nhacnen.mp3 lên cùng thư mục nếu muốn dùng -->
-<audio id="backgroundMusic" src="nhacnen.mp3" loop preload="none"></audio>
+<!-- File nhacnen.mp3 phải nằm cùng thư mục với index.html -->
+<audio id="backgroundMusic" src="nhacnen.mp3" loop preload="auto"></audio>
 
 <button class="music-button" id="musicButton" type="button"
         aria-label="Bật nhạc nền" aria-pressed="false">
     <span class="music-icon" id="musicIcon">♫</span>
-    <span id="musicText">Nhạc: Tắt</span>
+    <span id="musicText">Bật nhạc</span>
 </button>
 
 <!-- MÀN HÌNH CHÀO -->
@@ -672,9 +609,7 @@ footer {
                 Chúc các bạn 20/10 thật vui vẻ và hạnh phúc! ♡
             </p>
 
-            <div class="letter-sign">
-                Tập thể lớp A1K65 💌
-            </div>
+            <div class="letter-sign">Tập thể lớp A1K65 💌</div>
         </div>
     </div>
 </section>
@@ -684,13 +619,13 @@ footer {
     <div class="section-inner">
         <h2 class="section-title">Gửi tặng các bạn nữ A1K65 ♡</h2>
         <p class="section-subtitle">
+            Những khoảnh khắc đẹp của lớp mình 🌷
         </p>
 
-        <div class="album-grid" id="albumGrid">
-            <!-- JavaScript tự tạo các khung ảnh ở đây -->
-        </div>
+        <div class="album-grid" id="albumGrid"></div>
 
         <div class="album-tip">
+            Cùng lưu giữ những kỷ niệm thật đẹp của A1K65 nhé! 💗
         </div>
     </div>
 </section>
@@ -700,9 +635,7 @@ footer {
     <div class="section-inner">
         <div class="closing-heart">💗</div>
 
-        <h2>
-            Vì các bạn là những bông hoa đẹp nhất của A1K65!
-        </h2>
+        <h2>Vì các bạn là những bông hoa đẹp nhất của A1K65!</h2>
 
         <p>
             Chúc các bạn luôn rạng rỡ, luôn là chính mình và có thật nhiều
@@ -726,22 +659,18 @@ footer {
 </footer>
 
 <script>
-/* ==========================================
-   1. DANH SÁCH ẢNH
-   Đổi tên file hoặc thêm ảnh tại đây.
-========================================== */
+/* 1. DANH SÁCH ẢNH */
 const photos = [
     { src: "anh1.jpg" },
-    { src: "anh2.jpg" },
-    { src: "anh3.jpg"},
-    { src: "anh4.jpg" },
+    { src: "anh2.jpg"},
+    { src: "anh3.jpg" },
+    { src: "anh4.jpg"},
     { src: "anh5.jpg" },
     { src: "anh6.jpg" },
     { src: "anh7.jpg" },
-    { src: "anh8.jpg"  }
+    { src: "anh8.jpg" }
 ];
 
-/* Tạo album ảnh */
 const albumGrid = document.getElementById("albumGrid");
 
 photos.forEach((photo, index) => {
@@ -759,13 +688,13 @@ photos.forEach((photo, index) => {
 
     const img = document.createElement("img");
     img.src = photo.src;
-    img.alt = photo.caption;
+    img.alt = photo.caption || ("Ảnh A1K65 " + (index + 1));
     img.loading = "lazy";
+    img.style.display = "none";
 
-    /* Nếu chưa tải ảnh lên, hiển thị lời nhắc thay vì ảnh lỗi */
     img.addEventListener("error", function () {
         img.style.display = "none";
-        frame.appendChild(placeholder);
+        if (!placeholder.isConnected) frame.appendChild(placeholder);
     });
 
     img.addEventListener("load", function () {
@@ -773,20 +702,19 @@ photos.forEach((photo, index) => {
         img.style.display = "block";
     });
 
+    frame.appendChild(placeholder);
     frame.appendChild(img);
 
     const caption = document.createElement("div");
     caption.className = "photo-caption";
-    caption.textContent = photo.caption;
+    caption.textContent = photo.caption || "Kỷ niệm A1K65 ♡";
 
     card.appendChild(frame);
     card.appendChild(caption);
     albumGrid.appendChild(card);
 });
 
-/* ==========================================
-   2. MỞ THIỆP VÀ CHUYỂN CẢNH
-========================================== */
+/* 2. MỞ THIỆP */
 const openCardButton = document.getElementById("openCardButton");
 const bouquet = document.getElementById("bouquet");
 const letterSection = document.getElementById("letterSection");
@@ -802,7 +730,6 @@ function openCard() {
     }
 
     cardOpened = true;
-
     letterSection.classList.remove("hidden");
     albumSection.classList.remove("hidden");
     closingSection.classList.remove("hidden");
@@ -828,10 +755,7 @@ document.getElementById("backToTopButton").addEventListener("click", function ()
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/* ==========================================
-   3. NHẠC NỀN BẬT / TẮT
-   Lưu ý: cần file nhacnen.mp3 ở cùng thư mục.
-========================================== */
+/* 3. NHẠC NỀN */
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 const musicText = document.getElementById("musicText");
@@ -839,36 +763,49 @@ const musicIcon = document.getElementById("musicIcon");
 
 let musicPlaying = false;
 
+function updateMusicButton(playing) {
+    musicPlaying = playing;
+    musicText.textContent = playing ? "Nhạc: Bật" : "Bật nhạc";
+    musicIcon.textContent = "♫";
+    musicButton.setAttribute(
+        "aria-label",
+        playing ? "Tắt nhạc nền" : "Bật nhạc nền"
+    );
+    musicButton.setAttribute("aria-pressed", String(playing));
+}
+
+// Thử phát nhạc ngay khi mở trang.
+// Trình duyệt có thể chặn tự phát nếu chưa có tương tác.
+async function startMusic() {
+    try {
+        await music.play();
+        updateMusicButton(true);
+    } catch (error) {
+        updateMusicButton(false);
+    }
+}
+
+window.addEventListener("load", startMusic);
+
+// Nút bật/tắt nhạc thủ công
 musicButton.addEventListener("click", async function () {
-    if (!musicPlaying) {
+    if (music.paused) {
         try {
             await music.play();
-            musicPlaying = true;
-            musicText.textContent = "Nhạc: Bật";
-            musicIcon.textContent = "♫";
-            musicButton.setAttribute("aria-label", "Tắt nhạc nền");
-            musicButton.setAttribute("aria-pressed", "true");
+            updateMusicButton(true);
         } catch (error) {
-            musicText.textContent = "Chưa có nhạc";
-            musicIcon.textContent = "♪";
+            updateMusicButton(false);
             alert(
-                "Chưa phát được nhạc nền. Hãy tải file nhacnen.mp3 " +
-                "lên cùng thư mục với index.html rồi thử lại nhé!"
+                "Chưa phát được nhạc có thể do lỗi nhq xin lỗi bạn nha."
             );
         }
     } else {
         music.pause();
-        musicPlaying = false;
-        musicText.textContent = "Nhạc: Tắt";
-        musicIcon.textContent = "♫";
-        musicButton.setAttribute("aria-label", "Bật nhạc nền");
-        musicButton.setAttribute("aria-pressed", "false");
+        updateMusicButton(false);
     }
 });
 
-/* ==========================================
-   4. HIỆU ỨNG HOA RƠI
-========================================== */
+/* 4. HOA RƠI */
 const petalSymbols = ["🌸", "🌷", "♡", "💗", "✿"];
 let petalTimer = null;
 
@@ -898,7 +835,6 @@ function createPetals(amount) {
         setTimeout(createPetal, i * 100);
     }
 
-    /* Không tạo quá nhiều hoa cùng lúc */
     if (!petalTimer) {
         petalTimer = setInterval(() => {
             if (document.querySelectorAll(".falling-petal").length < 18) {
@@ -908,7 +844,7 @@ function createPetals(amount) {
     }
 }
 
-/* Hiệu ứng nhẹ ngay từ màn hình đầu */
+// Hiệu ứng nhẹ từ màn hình đầu
 setTimeout(() => createPetals(8), 500);
 </script>
 
