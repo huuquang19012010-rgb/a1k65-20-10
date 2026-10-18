@@ -303,7 +303,7 @@ section {
 }
 
 .polaroid {
-    padding: 10px 10px 17px;
+    padding: 10px;
     background: white;
     border-radius: 3px;
     box-shadow: 0 8px 22px rgba(166, 82, 118, .15);
@@ -340,8 +340,13 @@ section {
     position: relative;
 }
 
-.polaroid:nth-child(-n+5) .photo-frame { aspect-ratio: 3 / 4; }
-.polaroid:nth-child(n+6) .photo-frame { aspect-ratio: 4 / 3; }
+.polaroid:nth-child(-n+10) .photo-frame {
+    aspect-ratio: 3 / 4;
+}
+
+.polaroid:nth-child(n+11) .photo-frame {
+    aspect-ratio: 4 / 3;
+}
 
 .photo-frame img {
     width: 100%;
@@ -351,7 +356,9 @@ section {
     transition: transform .45s;
 }
 
-.polaroid:hover .photo-frame img { transform: scale(1.05); }
+.polaroid:hover .photo-frame img {
+    transform: scale(1.05);
+}
 
 .photo-placeholder {
     text-align: center;
@@ -365,27 +372,6 @@ section {
     display: block;
     font-size: 35px;
     margin-bottom: 5px;
-}
-
-.photo-caption {
-    text-align: center;
-    padding: 13px 4px 0;
-    color: #bd4d7a;
-    font-family: Georgia, serif;
-    font-size: 17px;
-    font-style: italic;
-    overflow-wrap: anywhere;
-}
-
-.album-tip {
-    margin: 30px auto 0;
-    max-width: 650px;
-    padding: 16px 20px;
-    border: 1px dashed #f4a7c2;
-    border-radius: 16px;
-    background: #fff7fa;
-    line-height: 1.8;
-    font-size: 14px;
 }
 
 /* LỜI NHẮN KẾT */
@@ -493,7 +479,10 @@ footer {
         padding-top: 90px;
     }
 
-    .hero h1 { font-size: clamp(2.05rem, 9vw, 3.2rem); }
+    .hero h1 {
+        font-size: clamp(2.05rem, 9vw, 3.2rem);
+    }
+
     .bouquet-wrap { height: 260px; }
 
     .album-grid {
@@ -501,12 +490,7 @@ footer {
         gap: 17px;
     }
 
-    .polaroid { padding: 7px 7px 12px; }
-
-    .photo-caption {
-        font-size: 14px;
-        padding-top: 10px;
-    }
+    .polaroid { padding: 7px; }
 
     .letter p {
         font-size: 15px;
@@ -522,7 +506,6 @@ footer {
 
 @media (max-width: 380px) {
     .album-grid { gap: 12px; }
-    .photo-caption { font-size: 13px; }
     .bouquet-wrap { height: 225px; }
 }
 
@@ -539,7 +522,7 @@ footer {
 
 <body>
 
-<!-- File nhacnen.mp3 phải nằm cùng thư mục với index.html -->
+<!-- FILE NHACNEN.MP3 ĐẶT CÙNG THƯ MỤC VỚI INDEX.HTML -->
 <audio id="backgroundMusic" src="nhacnen.mp3" loop preload="auto"></audio>
 
 <button class="music-button" id="musicButton" type="button"
@@ -571,7 +554,9 @@ footer {
             💌 Bấm để mở thiệp
         </button>
 
-        <span class="hero-hint">Chạm vào bó hoa để khám phá món quà nhỏ này ↓</span>
+        <span class="hero-hint">
+            Chạm vào bó hoa để khám phá món quà nhỏ này ↓
+        </span>
     </div>
 </section>
 
@@ -618,6 +603,7 @@ footer {
 <section class="album-section hidden" id="albumSection">
     <div class="section-inner">
         <h2 class="section-title">Gửi tặng các bạn nữ A1K65 ♡</h2>
+
         <p class="section-subtitle">
             Những khoảnh khắc đẹp của lớp mình 🌷
         </p>
@@ -662,15 +648,15 @@ footer {
 /* 1. DANH SÁCH ẢNH */
 const photos = [
     { src: "anh1.jpg" },
-    { src: "anh2.jpg"},
+    { src: "anh2.jpg" },
     { src: "anh3.jpg" },
-    { src: "anh4.jpg"},
+    { src: "anh4.jpg" },
     { src: "anh5.jpg" },
     { src: "anh6.jpg" },
     { src: "anh7.jpg" },
-    { src: "anh8.jpg" }
-    { src: "anh9.jpg" }
-    { src: "anh10.jpg" }
+    { src: "anh8.jpg" },
+    { src: "anh9.jpg" },
+    { src: "anh10.jpg" },
     { src: "anh11.jpg" }
 ];
 
@@ -687,17 +673,20 @@ photos.forEach((photo, index) => {
     placeholder.className = "photo-placeholder";
     placeholder.innerHTML =
         '<span>🌸</span><strong>Ảnh ' + (index + 1) +
-        '</strong><br>Thêm file ' + photo.src;
+        '</strong><br>Chưa tìm thấy file ' + photo.src;
 
     const img = document.createElement("img");
     img.src = photo.src;
-    img.alt = photo.caption || ("Ảnh A1K65 " + (index + 1));
+    img.alt = "Ảnh A1K65 " + (index + 1);
     img.loading = "lazy";
     img.style.display = "none";
 
     img.addEventListener("error", function () {
         img.style.display = "none";
-        if (!placeholder.isConnected) frame.appendChild(placeholder);
+
+        if (!placeholder.isConnected) {
+            frame.appendChild(placeholder);
+        }
     });
 
     img.addEventListener("load", function () {
@@ -707,13 +696,7 @@ photos.forEach((photo, index) => {
 
     frame.appendChild(placeholder);
     frame.appendChild(img);
-
-    const caption = document.createElement("div");
-    caption.className = "photo-caption";
-    caption.textContent = photo.caption || "Kỷ niệm A1K65 ♡";
-
     card.appendChild(frame);
-    card.appendChild(caption);
     albumGrid.appendChild(card);
 });
 
@@ -728,19 +711,26 @@ let cardOpened = false;
 
 function openCard() {
     if (cardOpened) {
-        letterSection.scrollIntoView({ behavior: "smooth" });
+        letterSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
         return;
     }
 
     cardOpened = true;
+
     letterSection.classList.remove("hidden");
     albumSection.classList.remove("hidden");
     closingSection.classList.remove("hidden");
 
     createPetals(22);
 
-    setTimeout(() => {
-        letterSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(function () {
+        letterSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }, 180);
 }
 
@@ -754,9 +744,13 @@ bouquet.addEventListener("keydown", function (event) {
     }
 });
 
-document.getElementById("backToTopButton").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+document.getElementById("backToTopButton")
+    .addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 
 /* 3. NHẠC NỀN */
 const music = document.getElementById("backgroundMusic");
@@ -764,33 +758,29 @@ const musicButton = document.getElementById("musicButton");
 const musicText = document.getElementById("musicText");
 const musicIcon = document.getElementById("musicIcon");
 
-let musicPlaying = false;
-
 function updateMusicButton(playing) {
-    musicPlaying = playing;
     musicText.textContent = playing ? "Nhạc: Bật" : "Bật nhạc";
-    musicIcon.textContent = "♫";
+    musicIcon.textContent = playing ? "♫" : "♫";
+
     musicButton.setAttribute(
         "aria-label",
         playing ? "Tắt nhạc nền" : "Bật nhạc nền"
     );
+
     musicButton.setAttribute("aria-pressed", String(playing));
 }
 
-// Thử phát nhạc ngay khi mở trang.
-// Trình duyệt có thể chặn tự phát nếu chưa có tương tác.
-async function startMusic() {
+// Trình duyệt có thể chặn tự phát nhạc.
+window.addEventListener("load", async function () {
     try {
         await music.play();
         updateMusicButton(true);
     } catch (error) {
         updateMusicButton(false);
     }
-}
+});
 
-window.addEventListener("load", startMusic);
-
-// Nút bật/tắt nhạc thủ công
+// Nút bật/tắt nhạc thủ công.
 musicButton.addEventListener("click", async function () {
     if (music.paused) {
         try {
@@ -799,7 +789,7 @@ musicButton.addEventListener("click", async function () {
         } catch (error) {
             updateMusicButton(false);
             alert(
-                "Chưa phát được nhạc có thể do lỗi nhq xin lỗi bạn nha."
+                "Chưa phát được nhạc. Hãy kiểm tra file nhacnen.mp3 nhé!"
             );
         }
     } else {
@@ -815,12 +805,16 @@ let petalTimer = null;
 function createPetal() {
     const petal = document.createElement("span");
     petal.className = "falling-petal";
+
     petal.textContent =
-        petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+        petalSymbols[
+            Math.floor(Math.random() * petalSymbols.length)
+        ];
 
     petal.style.left = Math.random() * 100 + "vw";
     petal.style.fontSize = (12 + Math.random() * 15) + "px";
     petal.style.animationDuration = (6 + Math.random() * 6) + "s";
+
     petal.style.setProperty(
         "--drift",
         (Math.random() * 180 - 90) + "px"
@@ -839,16 +833,20 @@ function createPetals(amount) {
     }
 
     if (!petalTimer) {
-        petalTimer = setInterval(() => {
-            if (document.querySelectorAll(".falling-petal").length < 18) {
+        petalTimer = setInterval(function () {
+            if (
+                document.querySelectorAll(".falling-petal").length < 18
+            ) {
                 createPetal();
             }
         }, 900);
     }
 }
 
-// Hiệu ứng nhẹ từ màn hình đầu
-setTimeout(() => createPetals(8), 500);
+// Một ít hoa rơi ngay từ màn hình đầu.
+setTimeout(function () {
+    createPetals(8);
+}, 500);
 </script>
 
 </body>
